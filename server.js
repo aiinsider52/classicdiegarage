@@ -29,7 +29,16 @@ app.use(["/data", "/uploads", "/scripts", "/server.js", "/package.json", "/packa
 if (isServerless) {
   app.get("/", (_, res) => res.sendFile(path.join(publicDir, "index.html")));
 } else {
-  app.use(express.static(publicDir, { extensions: ["html"] }));
+  app.use(express.static(publicDir, {
+    extensions: ["html"],
+    setHeaders: (res, filePath) => {
+      if (/\.(?:mp4|woff2)$/i.test(filePath)) {
+        res.setHeader("Cache-Control", "public, max-age=31536000, immutable");
+      } else if (/\.(?:avif|gif|jpe?g|png|svg|webp)$/i.test(filePath)) {
+        res.setHeader("Cache-Control", "public, max-age=86400, stale-while-revalidate=604800");
+      }
+    }
+  }));
 }
 
 const upload = multer({
@@ -85,7 +94,11 @@ app.post("/api/leads", leadLimit, upload.array("photos", 6), async (req, res) =>
     createdAt: new Date().toISOString(),
     ip: req.ip,
     type: req.body.type || "general",
+    service: req.body.service || "",
+    appointmentDate: req.body.appointmentDate || "",
+    appointmentTime: req.body.appointmentTime || "",
     contact: req.body.contact,
+    vehicle: req.body.vehicle || "",
     brand: req.body.brand || "",
     model: req.body.model || "",
     year: req.body.year || "",

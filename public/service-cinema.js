@@ -13,6 +13,10 @@ if (serviceCinema) {
   let lastFrameTime = 0;
   let initialized = false;
   let videosLoaded = false;
+  let visualScene = 0;
+  const seekStates = videos.map(() => ({ active: false, lastSeek: 0, target: 0, timer: 0 }));
+  const seekTolerance = 1 / 72;
+  const seekInterval = 34;
 
   const clamp = (value, min = 0, max = 1) => Math.min(max, Math.max(min, value));
 
@@ -27,15 +31,60 @@ if (serviceCinema) {
     videosLoaded = true;
     videos.forEach((video) => {
       video.src = video.dataset.src;
-      video.addEventListener("loadedmetadata", requestRender, { once: true });
       video.load();
     });
   };
 
-  const seek = (video, time) => {
-    if (video.readyState < 1 || !Number.isFinite(video.duration)) return;
-    const target = clamp(time, 0, Math.max(0, video.duration - .04));
-    if (Math.abs(video.currentTime - target) > .018) video.currentTime = target;
+  const durationOf = (video) =>
+    Number.isFinite(video.duration) && video.duration > 0 ? video.duration : 6;
+
+  const clampVideoTime = (video, time) =>
+    clamp(time, 0, Math.max(0, durationOf(video) - .001));
+
+  const isReadyAt = (video, time, tolerance = .14) => {
+    if (video.readyState < 2 || video.seeking) return false;
+    return Math.abs(video.currentTime - clampVideoTime(video, time)) <= tolerance;
+  };
+
+  const startSeek = (video, index) => {
+    const state = seekStates[index];
+    if (video.readyState < 1 || state.active || video.seeking) return;
+    if (Math.abs(video.currentTime - state.target) <= seekTolerance) return;
+
+    const wait = seekInterval - (performance.now() - state.lastSeek);
+    if (wait > 0) {
+      if (!state.timer) {
+        state.timer = window.setTimeout(() => {
+          state.timer = 0;
+          startSeek(video, index);
+        }, wait);
+      }
+      return;
+    }
+
+    state.active = true;
+    state.lastSeek = performance.now();
+    try {
+      video.currentTime = state.target;
+    } catch {
+      state.active = false;
+    }
+  };
+
+  const queueSeek = (video, index, time) => {
+    seekStates[index].target = clampVideoTime(video, time);
+    startSeek(video, index);
+  };
+
+  const finishSeek = (video, index) => {
+    const state = seekStates[index];
+    state.active = false;
+
+    if (Math.abs(video.currentTime - state.target) > seekTolerance) {
+      queueSeek(video, index, state.target);
+    }
+
+    requestRender();
   };
 
   const paint = (currentProgress) => {
@@ -43,18 +92,39 @@ if (serviceCinema) {
     const scene = Math.min(videos.length - 1, Math.floor(scaled));
     const localProgress = scene === videos.length - 1 && scaled === videos.length ? 1 : scaled - scene;
     const blendStart = .8;
-    const blend = scene < videos.length - 1 ? clamp((localProgress - blendStart) / (1 - blendStart)) : 0;
+    const currentVideo = videos[scene];
+    const currentTime = localProgress * durationOf(currentVideo);
+    const transitioning = visualScene !== scene;
+    const entryTime = scene > visualScene ? 0 : durationOf(currentVideo);
+
+    if (transitioning) {
+      queueSeek(currentVideo, scene, entryTime);
+      if (isReadyAt(currentVideo, entryTime, .18)) visualScene = scene;
+    }
 
     videos.forEach((video, index) => {
-      let opacity = 0;
-      if (index === scene) opacity = 1 - blend;
-      if (index === scene + 1) opacity = blend;
-      video.style.opacity = opacity.toFixed(3);
-
-      if (index === scene) seek(video, localProgress * video.duration);
-      else if (index < scene) seek(video, video.duration);
-      else seek(video, 0);
+      if (index === scene) {
+        queueSeek(video, index, visualScene === scene ? currentTime : entryTime);
+      } else if (index === visualScene && visualScene !== scene) {
+        return;
+      } else if (index < scene) queueSeek(video, index, durationOf(video));
+      else queueSeek(video, index, 0);
     });
+
+    videos.forEach((video, index) => {
+      video.style.opacity = index === visualScene ? "1" : "0";
+    });
+
+    if (visualScene === scene) {
+      const nextVideo = videos[scene + 1];
+      const rawBlend = scene < videos.length - 1
+        ? clamp((localProgress - blendStart) / (1 - blendStart))
+        : 0;
+      const blend = nextVideo && isReadyAt(nextVideo, 0) ? rawBlend : 0;
+
+      currentVideo.style.opacity = (1 - blend).toFixed(3);
+      if (nextVideo) nextVideo.style.opacity = blend.toFixed(3);
+    }
 
     copies.forEach((copy, index) => copy.classList.toggle("is-active", index === scene));
     jumpButtons.forEach((button, index) => {
@@ -106,6 +176,18 @@ if (serviceCinema) {
         behavior: reduceMotion ? "auto" : "smooth"
       });
     });
+  });
+
+  videos.forEach((video, index) => {
+    video.muted = true;
+    video.playsInline = true;
+    video.pause();
+    video.addEventListener("loadedmetadata", () => {
+      queueSeek(video, index, seekStates[index].target);
+      requestRender();
+    });
+    video.addEventListener("seeked", () => finishSeek(video, index));
+    video.addEventListener("canplay", requestRender);
   });
 
   if (!reduceMotion) {

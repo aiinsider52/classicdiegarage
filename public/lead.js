@@ -3,6 +3,7 @@ document.querySelectorAll(".lead-form").forEach((form) => {
     event.preventDefault();
     const button = form.querySelector("button");
     const status = form.querySelector(".form-success");
+    const defaultButtonText = button.textContent;
     button.disabled = true;
     button.textContent = "Wird gesendet...";
     try {
@@ -17,7 +18,7 @@ document.querySelectorAll(".lead-form").forEach((form) => {
       status.classList.add("show");
     } finally {
       button.disabled = false;
-      button.textContent = "Anfrage senden";
+      button.textContent = defaultButtonText;
     }
   });
 });

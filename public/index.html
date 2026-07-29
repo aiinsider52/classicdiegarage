@@ -60,9 +60,9 @@
     <section class="cinema" id="cinema" aria-label="BMW M4 in drei scrollgesteuerten Szenen">
       <div class="cinema-stage" data-scene="0">
         <div class="cinema-media" aria-hidden="true">
-          <video class="cinema-video" data-video="0" muted playsinline preload="auto" poster="assets/video/bmw-ignition.jpg?v=20260729-smooth60" src="assets/video/bmw-ignition.mp4?v=20260729-smooth60"></video>
-          <video class="cinema-video" data-video="1" muted playsinline preload="auto" poster="assets/video/bmw-turn.jpg?v=20260729-smooth60" src="assets/video/bmw-turn.mp4?v=20260729-smooth60"></video>
-          <video class="cinema-video" data-video="2" muted playsinline preload="auto" poster="assets/video/bmw-exploded.jpg?v=20260729-smooth60" src="assets/video/bmw-exploded.mp4?v=20260729-smooth60"></video>
+          <video class="cinema-video" data-video="0" muted playsinline preload="auto" poster="assets/video/bmw-ignition.jpg?v=20260729-frame0" src="assets/video/bmw-ignition.mp4?v=20260729-smooth60"></video>
+          <video class="cinema-video" data-video="1" muted playsinline preload="auto" poster="assets/video/bmw-turn.jpg?v=20260729-frame0" src="assets/video/bmw-turn.mp4?v=20260729-smooth60"></video>
+          <video class="cinema-video" data-video="2" muted playsinline preload="auto" poster="assets/video/bmw-exploded.jpg?v=20260729-frame0" src="assets/video/bmw-exploded.mp4?v=20260729-smooth60"></video>
         </div>
         <div class="cinema-veil" aria-hidden="true"></div>
         <div class="cinema-grid" aria-hidden="true"></div>
@@ -138,19 +138,19 @@
             <p class="service-cinema-kicker"><span>01</span> Mechanik & Wartung</p>
             <h2>Präzision,<br><em>die man spürt.</em></h2>
             <p>Inspektion, Motor, Getriebe, Fahrwerk und Elektrik für europäische Klassiker und ausgewählte Youngtimer.</p>
-            <a href="/services/reparatur.html">Leistungen & Preise <span>↗</span></a>
+            <a href="termin.html?service=mechanik">Termin buchen <span>↗</span></a>
           </article>
           <article class="service-cinema-copy service-cinema-copy-right" data-service-copy="1">
             <p class="service-cinema-kicker"><span>02</span> Restaurierung</p>
             <h2>Charakter erhalten.<br><em>Nicht überschreiben.</em></h2>
             <p>Substanzorientierte Restaurierung mit klaren Etappen, sauberer Dokumentation und Respekt vor Patina.</p>
-            <a href="/kontakt.html">Projekt besprechen <span>↗</span></a>
+            <a href="termin.html?service=restaurierung">Beratung buchen <span>↗</span></a>
           </article>
           <article class="service-cinema-copy" data-service-copy="2">
             <p class="service-cinema-kicker"><span>03</span> Pflege & Lagerung</p>
             <h2>Bereit,<br><em>wenn Sie es sind.</em></h2>
             <p>Detailing, Saisoncheck, sichere Einlagerung und regelmäßige Bewegungsfahrten.</p>
-            <a href="/kontakt.html">Platz reservieren <span>↗</span></a>
+            <a href="termin.html?service=pflege">Termin buchen <span>↗</span></a>
           </article>
         </div>
 
@@ -163,11 +163,25 @@
       </div>
     </section>
 
+    <section class="service-more" aria-labelledby="service-more-title">
+      <div class="service-more-heading">
+        <p class="eyebrow dark">Weitere Leistungen</p>
+        <h2 id="service-more-title">Alles rund ums Auto.<br><em>Ein Ansprechpartner.</em></h2>
+      </div>
+      <div class="service-more-grid">
+        <a href="termin.html?service=reparatur"><span>01</span><strong>Reparatur & Diagnose</strong><small>Service, Motor, Bremsen, Elektrik</small></a>
+        <a href="termin.html?service=reifen"><span>02</span><strong>Reifenwechsel</strong><small>Sommer- und Winterräder</small></a>
+        <a href="termin.html?service=reifenhotel"><span>03</span><strong>Reifenhotel</strong><small>Saubere, sichere Einlagerung</small></a>
+        <a href="termin.html?service=detailing"><span>04</span><strong>Detailing</strong><small>Innenraum, Lack und Pflege</small></a>
+        <a href="termin.html?service=saisoncheck"><span>05</span><strong>Saison- & MFK-Check</strong><small>Prüfung vor Saison oder Termin</small></a>
+      </div>
+    </section>
+
     <section class="inventory section-pad" id="fahrzeuge">
       <div class="inventory-top">
         <div class="section-heading">
-          <p class="eyebrow dark">Kuratierte Auswahl</p>
-          <h2>Wählen Sie<br><em>Ihre Epoche.</em></h2>
+          <p class="eyebrow dark">Kuratierte Auswahl · 04 Fahrzeuge</p>
+          <h2>Fahrzeuge <em>für jede Epoche.</em></h2>
         </div>
         <div class="filters" aria-label="Fahrzeuge filtern">
           <button class="active" data-filter="all">Alle</button>
@@ -177,28 +191,28 @@
         </div>
       </div>
       <div class="car-grid">
-        <a class="car-card" data-category="oldtimer" href="/fahrzeuge/porsche-911-s-24-1972">
+        <a class="car-card status-available" data-category="oldtimer" href="/fahrzeuge/porsche-911-s-24-1972">
           <div class="car-image">
             <img src="assets/hero.jpg" alt="Klassischer Porsche 911" loading="lazy">
             <span>Verfügbar</span>
           </div>
           <div class="car-info"><p>1972 · 84.200 km</p><h3>Porsche 911 S 2.4</h3><strong>Preis auf Anfrage</strong></div>
         </a>
-        <a class="car-card" data-category="oldtimer" href="/fahrzeuge/mercedes-280-sl-1968">
+        <a class="car-card status-sold" data-category="oldtimer" href="/fahrzeuge/mercedes-280-sl-1968">
           <div class="car-image">
             <img src="assets/mercedes.jpg" alt="Klassischer Mercedes Benz" loading="lazy">
             <span>Verkauft</span>
           </div>
           <div class="car-info"><p>1968 · 71.400 km</p><h3>Mercedes-Benz 280 SL</h3><strong>CHF 112.000</strong></div>
         </a>
-        <a class="car-card" data-category="modern" href="/fahrzeuge/audi-rs6-avant-2022">
+        <a class="car-card status-reserved" data-category="modern" href="/fahrzeuge/audi-rs6-avant-2022">
           <div class="car-image">
             <img src="assets/bmw.jpg" alt="Audi RS6 Avant" loading="lazy">
             <span>Reserviert</span>
           </div>
           <div class="car-info"><p>2022 · 34.500 km</p><h3>Audi RS6 Avant</h3><strong>CHF 109.900</strong></div>
         </a>
-        <a class="car-card" data-category="daily" href="/fahrzeuge/bmw-320d-touring-2020">
+        <a class="car-card status-available" data-category="daily" href="/fahrzeuge/bmw-320d-touring-2020">
           <div class="car-image"><img src="assets/bmw.jpg" alt="BMW 320d Touring" loading="lazy"><span>Verfügbar</span></div>
           <div class="car-info"><p>2020 · 78.100 km</p><h3>BMW 320d Touring</h3><strong>CHF 27.800</strong></div>
         </a>
@@ -207,20 +221,22 @@
     </section>
 
     <section class="buy-section" id="ankauf">
+      <img class="buy-scene" src="assets/vehicle-handshake.webp" alt="Zwei Personen schließen den Fahrzeugverkauf mit Handschlag, Dokumenten und Autoschlüssel ab" loading="lazy">
       <div class="buy-copy">
-        <p class="eyebrow">Fahrzeugankauf</p>
-        <h2>Ihr Klassiker.<br><em>Unser nächstes Kapitel.</em></h2>
-        <p>Wir kaufen jedes Auto: modern oder klassisch, fahrbereit, defekt, beschädigt oder Unfallwagen. Sofort oder ohne Zeitdruck. Bewertung, Zahlung und Abholung aus einer Hand.</p>
+        <p class="eyebrow">Fahrzeugankauf & Verkaufsservice</p>
+        <h2>Wir kaufen<br><em>jedes Auto.</em></h2>
+        <p>Modern oder klassisch, fahrbereit, defekt, beschädigt oder mit Motorschaden. Wir kaufen direkt oder verkaufen Ihr Fahrzeug professionell im Kundenauftrag.</p>
         <ul>
-          <li><span>01</span> Fahrzeugdaten senden</li>
-          <li><span>02</span> Persönliche Bewertung erhalten</li>
-          <li><span>03</span> Sicher verkaufen</li>
+          <li><span>01</span> Direktankauf in jedem Zustand</li>
+          <li><span>02</span> Verkauf im Kundenauftrag</li>
+          <li><span>03</span> Vertrag, Zahlung und Abholung</li>
         </ul>
       </div>
       <form class="sell-form lead-form" id="sell-form" enctype="multipart/form-data">
         <input type="hidden" name="type" value="sell-car">
         <p class="eyebrow dark">Unverbindliche Bewertung</p>
-        <h3>Was steht in Ihrer Garage?</h3>
+        <h3>Wie dürfen wir helfen?</h3>
+        <label>Gewünschte Lösung<select name="service"><option>Direktankauf</option><option>Verkauf im Kundenauftrag</option><option>Beratung – noch nicht sicher</option></select></label>
         <div class="form-row">
           <label>Marke<input required name="brand" placeholder="z. B. Porsche"></label>
           <label>Modell<input required name="model" placeholder="z. B. 911 S"></label>
@@ -254,18 +270,6 @@
         <p>Was mit einem luftgekühlten Porsche und zu wenig Platz begann, ist heute eine unabhängige Werkstatt für Menschen, die ihr Fahrzeug verstehen und lange erhalten wollen.</p>
         <blockquote>„Wir verkaufen keine Träume. Wir sorgen dafür, dass man sie fahren kann.“</blockquote>
         <p class="signature">— Team Classic Car die Garage GmbH</p>
-      </div>
-    </section>
-
-    <section class="faq section-pad">
-      <div class="section-heading">
-        <p class="eyebrow dark">Gut zu wissen</p>
-        <h2>Häufige <em>Fragen.</em></h2>
-      </div>
-      <div class="faq-list">
-        <details><summary>Welche Fahrzeuge kauft Die Garage an?<span>+</span></summary><p>Europäische Oldtimer und besondere Youngtimer mit nachvollziehbarer Historie. Zustand und Preisklasse dürfen variieren.</p></details>
-        <details><summary>Übernehmt ihr vollständige Restaurierungen?<span>+</span></summary><p>Ja. Nach Bestandsaufnahme erhalten Sie einen transparenten Projektplan mit Etappen, Kostenrahmen und Dokumentation.</p></details>
-        <details><summary>Kann ich ein Fahrzeug vor dem Kauf prüfen lassen?<span>+</span></summary><p>Ja. Wir bieten unabhängige Kaufberatung, technische Prüfung und Bewertung auch für externe Fahrzeuge.</p></details>
       </div>
     </section>
 

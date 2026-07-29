@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Werkstatttermin buchen | Classic Car die Garage GmbH</title>
+  <meta name="description" content="Wunschtermin für Reparatur, Reifenwechsel, Reifenlagerung, Detailing oder Restaurierung bei Classic Car die Garage GmbH in Roggwil anfragen.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="light.css">
+</head>
+<body class="appointment-page">
+  <header class="page-header">
+    <a class="logo" href="index.html">
+      <span class="logo-mark">DG</span>
+      <span><strong>Die Garage</strong><small>Termin buchen</small></span>
+    </a>
+    <nav aria-label="Hauptnavigation">
+      <a href="werkstatt.html">Werkstatt</a>
+      <a href="fahrzeuge.html">Fahrzeuge</a>
+      <a href="ankauf.html">Auto verkaufen</a>
+      <a href="ueber-uns.html">Über uns</a>
+      <a class="nav-cta" href="tel:+41712786060">071 278 60 60</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="booking-hero">
+      <div class="booking-intro">
+        <p class="eyebrow">Werkstatt · Roggwil TG</p>
+        <h1>Ihr Termin.<br><em>Ihr Fahrzeug.</em></h1>
+        <p>Leistung wählen, Wunschtermin eintragen, Kontaktdaten senden. Wir prüfen Kapazität und bestätigen den Termin persönlich.</p>
+        <div class="booking-direct">
+          <span>Direkt anrufen</span>
+          <a href="tel:+41712786060">071 278 60 60</a>
+          <small>Termin nach Vereinbarung</small>
+        </div>
+      </div>
+
+      <form class="booking-form lead-form" id="appointment-form">
+        <input type="hidden" name="type" value="appointment">
+        <div class="booking-form-head">
+          <p class="eyebrow dark">Wunschtermin anfragen</p>
+          <span>01 / 03</span>
+        </div>
+
+        <label>Leistung
+          <select required name="service" id="appointment-service">
+            <option value="mechanik">Mechanik & Wartung</option>
+            <option value="reparatur">Reparatur & Diagnose</option>
+            <option value="restaurierung">Restaurierungsberatung</option>
+            <option value="pflege">Pflege & Lagerung</option>
+            <option value="reifen">Reifenwechsel</option>
+            <option value="reifenhotel">Reifenhotel / Einlagerung</option>
+            <option value="detailing">Detailing</option>
+            <option value="saisoncheck">Saison- & MFK-Check</option>
+          </select>
+        </label>
+
+        <div class="booking-calendar">
+          <div class="booking-form-head">
+            <p class="eyebrow dark">Datum & Zeitfenster</p>
+            <span>02 / 03</span>
+          </div>
+          <div class="booking-date-row">
+            <label>Wunschdatum<input required type="date" name="appointmentDate" id="appointment-date"></label>
+            <label>Zeitfenster
+              <select required name="appointmentTime">
+                <option value="">Bitte wählen</option>
+                <option>Vormittag</option>
+                <option>Mittagszeit</option>
+                <option>Nachmittag</option>
+                <option>Flexibel</option>
+              </select>
+            </label>
+          </div>
+          <small>Wunschzeit ist noch keine feste Buchung. Bestätigung erfolgt persönlich.</small>
+        </div>
+
+        <div class="booking-form-head">
+          <p class="eyebrow dark">Fahrzeug & Kontakt</p>
+          <span>03 / 03</span>
+        </div>
+        <div class="booking-date-row">
+          <label>Fahrzeug<input required name="vehicle" placeholder="Marke, Modell, Baujahr"></label>
+          <label>Telefon oder E-Mail<input required name="contact" placeholder="Wie erreichen wir Sie?"></label>
+        </div>
+        <label>Kurze Beschreibung<textarea name="note" rows="3" placeholder="Was soll gemacht werden? Gibt es Besonderheiten?"></textarea></label>
+        <label class="hp">Website<input name="website" tabindex="-1" autocomplete="off"></label>
+        <button class="button button-dark" type="submit">Wunschtermin senden</button>
+        <p class="form-success" role="status"></p>
+      </form>
+    </section>
+
+    <section class="booking-services" aria-labelledby="booking-services-title">
+      <div>
+        <p class="eyebrow dark">Noch unsicher?</p>
+        <h2 id="booking-services-title">Unsere Leistungen.</h2>
+      </div>
+      <a href="termin.html?service=reparatur"><span>01</span> Reparatur & Diagnose</a>
+      <a href="termin.html?service=reifen"><span>02</span> Reifenwechsel</a>
+      <a href="termin.html?service=reifenhotel"><span>03</span> Reifenhotel</a>
+      <a href="termin.html?service=detailing"><span>04</span> Detailing</a>
+      <a href="termin.html?service=restaurierung"><span>05</span> Restaurierung</a>
+    </section>
+  </main>
+
+  <footer class="site-footer"></footer>
+  <script src="appointment.js"></script>
+  <script src="lead.js"></script>
+  <script src="site-footer.js"></script>
+</body>
+</html>

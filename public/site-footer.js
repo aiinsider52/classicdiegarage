@@ -58,7 +58,7 @@ footer.innerHTML = `
       <a href="https://maps.google.com/?q=St.+Gallerstrasse+29,+9325+Roggwil" target="_blank" rel="noopener">Route öffnen ↗</a>
     </div>
     <div><span class="footer-label">Besuchen</span><p>St. Gallerstrasse 29<br>9325 Roggwil<br>Schweiz</p><p>Termin nach Vereinbarung</p></div>
-    <div><span class="footer-label">Leistungen</span><a href="/services/autoreparatur-roggwil.html">Autoreparatur Roggwil</a><a href="/services/oldtimer-service-roggwil.html">Oldtimer-Service</a><a href="/services/autoankauf-roggwil.html">Autoankauf Roggwil</a><a href="/fahrzeuge.html">Fahrzeuge kaufen</a></div>
+    <div><span class="footer-label">Leistungen</span><a href="/termin.html">Termin buchen</a><a href="/services/autoreparatur-roggwil.html">Autoreparatur Roggwil</a><a href="/services/oldtimer-service-roggwil.html">Oldtimer-Service</a><a href="/services/autoankauf-roggwil.html">Autoankauf Roggwil</a><a href="/fahrzeuge.html">Fahrzeuge kaufen</a></div>
     <div><span class="footer-label">Marken</span><a href="/brands/porsche.html">Porsche</a><a href="/brands/mercedes.html">Mercedes-Benz</a><a href="/brands/bmw.html">BMW</a></div>
   </div>
   <div class="footer-bottom">
