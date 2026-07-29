@@ -1,12 +1,8 @@
 {
   "cleanUrls": true,
   "functions": {
-    "api/index.js": {
-      "includeFiles": "{data/**,car.html,404.html}"
+    "server.js": {
+      "includeFiles": "{data/**,car.html,public/404.html}"
     }
-  },
-  "rewrites": [
-    { "source": "/api/(.*)", "destination": "/api" },
-    { "source": "/fahrzeuge/(.*)", "destination": "/api" }
-  ]
+  }
 }

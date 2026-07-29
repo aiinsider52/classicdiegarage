@@ -9,6 +9,7 @@ const path = require("path");
 
 const app = express();
 const root = __dirname;
+const publicDir = path.join(root, "public");
 const isServerless = Boolean(process.env.VERCEL || process.env.AWS_LAMBDA_FUNCTION_NAME);
 // Vercel/Lambda package dir is read-only; only /tmp is writable.
 const writableRoot = isServerless ? path.join(os.tmpdir(), "die-garage") : root;
@@ -18,11 +19,16 @@ const leadDir = path.join(writableRoot, "data", "leads");
 fs.mkdirSync(uploadDir, { recursive: true });
 fs.mkdirSync(leadDir, { recursive: true });
 
+app.set("trust proxy", 1);
 app.use(helmet({ contentSecurityPolicy: false }));
 app.use(express.json({ limit: "1mb" }));
 app.use(express.urlencoded({ extended: true }));
 app.use(["/data", "/uploads", "/scripts", "/server.js", "/package.json", "/package-lock.json", "/.env", "/.env.example"], (_, res) => res.sendStatus(404));
-app.use(express.static(root, { extensions: ["html"] }));
+
+// Local only — on Vercel, express.static is ignored; files in public/ are served by the CDN.
+if (!isServerless) {
+  app.use(express.static(publicDir, { extensions: ["html"] }));
+}
 
 const upload = multer({
   dest: uploadDir,
@@ -40,7 +46,7 @@ app.get("/api/cars/:slug", (req, res) => {
 
 app.get("/fahrzeuge/:slug", (req, res) => {
   const car = cars.find((item) => item.slug === req.params.slug);
-  if (!car) return res.status(404).sendFile(path.join(root, "404.html"));
+  if (!car) return res.status(404).sendFile(path.join(publicDir, "404.html"));
   const vehicleSchema = {
     "@context": "https://schema.org",
     "@type": "Vehicle",
