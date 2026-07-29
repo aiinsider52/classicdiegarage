@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Occasionen & Fahrzeuge kaufen Roggwil | Classic Car die Garage GmbH</title>
+  <meta name="description" content="Geprüfte Oldtimer, Sportwagen und Occasionen in Roggwil. Transparente Fahrzeugdaten, Ausstattung, Status und Preis.">
+  <link rel="canonical" href="https://classiccardiegarage.ch/fahrzeuge.html">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/light.css">
+</head>
+<body>
+  <header class="page-header">
+    <a class="logo" href="/"><span class="logo-mark">DG</span><span><strong>Die Garage</strong><small>Classic & Modern Cars</small></span></a>
+    <nav><a href="/werkstatt.html">Werkstatt</a><a href="/fahrzeuge.html">Fahrzeuge</a><a href="/ankauf.html">Auto verkaufen</a><a href="/ueber-uns.html">Über uns</a><a class="nav-cta" href="/kontakt.html">Kontakt</a></nav>
+  </header>
+  <main>
+    <section class="page-hero">
+      <div><p class="eyebrow dark">Geprüft · Dokumentiert · Roggwil</p><h1>Fahrzeuge<br><em>zum Kauf.</em></h1></div>
+      <p>Oldtimer, Sportwagen und ehrliche Alltagsautos. Technisch geprüft, transparent beschrieben, mit klarer Verfügbarkeit.</p>
+    </section>
+    <section class="page-content">
+      <div class="catalog-toolbar">
+        <div class="filters"><button class="active" data-filter="all">Alle</button><button data-filter="oldtimer">Oldtimer</button><button data-filter="modern">Modern</button><button data-filter="daily">Alltag</button></div>
+        <label>Status<select id="status-filter"><option value="all">Alle Status</option><option value="available">Verfügbar</option><option value="reserved">Reserviert</option><option value="sold">Verkauft</option></select></label>
+      </div>
+      <div class="catalog-summary"><strong id="catalog-count">0</strong><span>Fahrzeuge im Bestand</span></div>
+      <div class="full-car-grid" id="catalog-grid"></div>
+    </section>
+  </main>
+  <script src="/catalog.js"></script>
+  <script src="/site-footer.js"></script>
+</body>
+</html>

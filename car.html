@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{TITLE}}</title>
+  <meta name="description" content="{{DESCRIPTION}}">
+  <link rel="canonical" href="https://classiccardiegarage.ch/fahrzeuge/{{SLUG}}">
+  <script type="application/ld+json">{{VEHICLE_SCHEMA}}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/light.css">
+</head>
+<body class="detail-body" data-car="{{SLUG}}">
+  <header class="detail-header">
+    <a class="logo" href="/"><span class="logo-mark">DG</span><span><strong>Die Garage</strong><small>Classic & Modern Cars</small></span></a>
+    <a class="text-link" href="/fahrzeuge.html">← Alle Fahrzeuge</a>
+  </header>
+  <main id="car-detail">
+    <section class="detail-hero">
+      <img id="detail-image" src="" alt="">
+      <div class="detail-overlay">
+        <p class="eyebrow" id="detail-status"></p>
+        <h1 id="detail-title"></h1>
+        <div><span id="detail-year"></span><span id="detail-mileage"></span><strong id="detail-price"></strong></div>
+      </div>
+    </section>
+    <section class="detail-content">
+      <div>
+        <p class="eyebrow dark">Fahrzeugprofil</p>
+        <h2 id="detail-heading"></h2>
+        <p class="detail-description" id="detail-description"></p>
+        <div class="spec-grid" id="spec-grid"></div>
+        <div class="equipment-list"><p class="eyebrow dark">Ausstattung</p><div id="equipment-list"></div></div>
+      </div>
+      <aside class="detail-action">
+        <p class="eyebrow">Probefahrt & Beratung</p>
+        <h3>Dieses Fahrzeug erleben.</h3>
+        <form class="lead-form" data-type="test-drive">
+          <input type="hidden" name="type" value="test-drive">
+          <input type="hidden" name="model" id="form-model">
+          <label>Kontakt<input required name="contact" placeholder="Telefon oder E-Mail"></label>
+          <label>Wunschtermin<input name="note" type="date"></label>
+          <label class="hp">Website<input name="website" tabindex="-1" autocomplete="off"></label>
+          <button class="button button-light">Probefahrt anfragen</button>
+          <p class="form-success" role="status"></p>
+        </form>
+        <a class="report-link" href="/output/pdf/die-garage-fahrzeugexpertise.pdf" target="_blank">PDF-Expertise öffnen ↗</a>
+      </aside>
+    </section>
+    <section class="detail-gallery" id="detail-gallery" aria-label="Fahrzeuggalerie"></section>
+    <section class="history-section">
+      <p class="eyebrow">Dokumentiert</p>
+      <h2>Service-<em>historie.</em></h2>
+      <div id="service-history"></div>
+    </section>
+  </main>
+  <script src="/lead.js"></script>
+  <script src="/car.js"></script>
+<script src="/site-footer.js"></script></body>
+</html>
