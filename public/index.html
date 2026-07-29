@@ -123,34 +123,44 @@
       </div>
     </section>
 
-    <section class="services">
-      <article class="service-card service-main">
-        <span>01</span>
-        <div>
-          <p class="eyebrow">Mechanik & Wartung</p>
-          <h3>Damit Originalität zuverlässig bleibt.</h3>
-          <p>Inspektion, Motor, Getriebe, Fahrwerk und Elektrik für europäische Klassiker und ausgewählte Youngtimer.</p>
-          <a href="/services/reparatur.html">Leistungen & Preise →</a>
+    <section class="service-cinema" id="services" aria-label="Werkstattleistungen in drei scrollgesteuerten Szenen">
+      <div class="service-cinema-stage" data-service-scene="0">
+        <div class="service-cinema-media" aria-hidden="true">
+          <video class="service-cinema-video" data-service-video="0" muted playsinline preload="none" poster="assets/video/service-mechanik.jpg?v=20260729" data-src="assets/video/service-mechanik.mp4?v=20260729"></video>
+          <video class="service-cinema-video" data-service-video="1" muted playsinline preload="none" poster="assets/video/service-restaurierung.jpg?v=20260729" data-src="assets/video/service-restaurierung.mp4?v=20260729"></video>
+          <video class="service-cinema-video" data-service-video="2" muted playsinline preload="none" poster="assets/video/service-pflege.jpg?v=20260729" data-src="assets/video/service-pflege.mp4?v=20260729"></video>
         </div>
-      </article>
-      <article class="service-card service-restoration">
-        <span>02</span>
-        <div>
-          <p class="eyebrow">Restaurierung</p>
-          <h3>Zurück zum besten Kapitel.</h3>
-          <p>Substanzorientiert, dokumentiert und mit Respekt vor Patina.</p>
-          <a href="/kontakt.html">Projekt besprechen →</a>
+        <div class="service-cinema-shade" aria-hidden="true"></div>
+        <div class="service-cinema-grid" aria-hidden="true"></div>
+
+        <div class="service-cinema-scenes">
+          <article class="service-cinema-copy is-active" data-service-copy="0">
+            <p class="service-cinema-kicker"><span>01</span> Mechanik & Wartung</p>
+            <h2>Präzision,<br><em>die man spürt.</em></h2>
+            <p>Inspektion, Motor, Getriebe, Fahrwerk und Elektrik für europäische Klassiker und ausgewählte Youngtimer.</p>
+            <a href="/services/reparatur.html">Leistungen & Preise <span>↗</span></a>
+          </article>
+          <article class="service-cinema-copy service-cinema-copy-right" data-service-copy="1">
+            <p class="service-cinema-kicker"><span>02</span> Restaurierung</p>
+            <h2>Charakter erhalten.<br><em>Nicht überschreiben.</em></h2>
+            <p>Substanzorientierte Restaurierung mit klaren Etappen, sauberer Dokumentation und Respekt vor Patina.</p>
+            <a href="/kontakt.html">Projekt besprechen <span>↗</span></a>
+          </article>
+          <article class="service-cinema-copy" data-service-copy="2">
+            <p class="service-cinema-kicker"><span>03</span> Pflege & Lagerung</p>
+            <h2>Bereit,<br><em>wenn Sie es sind.</em></h2>
+            <p>Detailing, Saisoncheck, sichere Einlagerung und regelmäßige Bewegungsfahrten.</p>
+            <a href="/kontakt.html">Platz reservieren <span>↗</span></a>
+          </article>
         </div>
-      </article>
-      <article class="service-card service-care">
-        <span>03</span>
-        <div>
-          <p class="eyebrow">Pflege & Lagerung</p>
-          <h3>Bereit für jede Ausfahrt.</h3>
-          <p>Detailing, Saisoncheck, sichere Einlagerung und regelmäßige Bewegungsfahrten.</p>
-          <a href="/kontakt.html">Platz reservieren →</a>
-        </div>
-      </article>
+
+        <ol class="service-cinema-nav" aria-label="Werkstattleistungen">
+          <li><button class="is-active" type="button" data-service-jump="0" aria-current="step"><span>01</span> Mechanik</button></li>
+          <li><button type="button" data-service-jump="1"><span>02</span> Restaurierung</button></li>
+          <li><button type="button" data-service-jump="2"><span>03</span> Pflege</button></li>
+        </ol>
+        <div class="service-cinema-progress" aria-hidden="true"><i></i></div>
+      </div>
     </section>
 
     <section class="inventory section-pad" id="fahrzeuge">
@@ -264,6 +274,7 @@
   <footer class="site-footer"></footer>
   <script src="script.js"></script>
   <script src="cinema.js"></script>
+  <script src="service-cinema.js"></script>
   <script src="lead.js"></script>
   <script src="site-footer.js"></script>
 </body>

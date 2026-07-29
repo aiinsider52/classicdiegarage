@@ -521,3 +521,213 @@ details p { color: #adb7ba; }
   .cinema-scroll,
   .cinema-meter { display: none; }
 }
+
+/* Scroll-controlled workshop services */
+.service-cinema {
+  height: 430vh;
+  min-height: 3100px;
+  position: relative;
+  color: var(--ink);
+  background: #0b0e10;
+}
+.service-cinema-stage {
+  width: 100%;
+  height: 100svh;
+  min-height: 680px;
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+  background: #0b0e10;
+}
+.service-cinema-media,
+.service-cinema-video,
+.service-cinema-shade,
+.service-cinema-grid {
+  position: absolute;
+  inset: 0;
+}
+.service-cinema-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 58% center;
+  opacity: 0;
+  will-change: opacity;
+}
+.service-cinema-video:first-child { opacity: 1; }
+.service-cinema-video[data-service-video="1"] { object-position: 43% center; }
+.service-cinema-video[data-service-video="2"] { object-position: 60% center; }
+.service-cinema-shade {
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(90deg, rgba(247,248,246,.98) 0 33%, rgba(247,248,246,.86) 37%, rgba(247,248,246,0) 52%);
+  transition: background .65s ease;
+}
+.service-cinema-stage[data-service-scene="1"] .service-cinema-shade {
+  background: linear-gradient(270deg, rgba(247,248,246,.98) 0 33%, rgba(247,248,246,.86) 37%, rgba(247,248,246,0) 52%);
+}
+.service-cinema-grid {
+  z-index: 2;
+  pointer-events: none;
+  opacity: .14;
+  background-image: linear-gradient(rgba(20,24,27,.22) 1px, transparent 1px), linear-gradient(90deg, rgba(20,24,27,.22) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: linear-gradient(90deg, black, transparent 48%);
+}
+.service-cinema-stage[data-service-scene="1"] .service-cinema-grid {
+  mask-image: linear-gradient(270deg, black, transparent 48%);
+}
+.service-cinema-scenes { position: absolute; z-index: 3; inset: 0; pointer-events: none; }
+.service-cinema-copy {
+  width: min(440px, 29vw);
+  position: absolute;
+  left: 4.5vw;
+  top: 48%;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-42%);
+  transition: opacity .22s ease, transform .55s cubic-bezier(.22,1,.36,1);
+}
+.service-cinema-copy-right { right: 4.5vw; left: auto; }
+.service-cinema-copy.is-active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-50%);
+  transition-delay: 0s;
+  pointer-events: auto;
+}
+.service-cinema-kicker {
+  margin: 0 0 28px;
+  color: #555e63;
+  font: 600 9px "IBM Plex Mono", monospace;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.service-cinema-kicker span { margin-right: 20px; color: #1767a5; }
+.service-cinema-copy h2 {
+  margin: 0;
+  color: #111619;
+  font: 820 clamp(48px, 4.3vw, 70px)/.88 "Archivo", sans-serif;
+  font-variation-settings: "wdth" 82;
+  letter-spacing: -.058em;
+  text-transform: uppercase;
+}
+.service-cinema-copy h2 em { color: #1767a5; font-style: normal; }
+.service-cinema-copy > p:not(.service-cinema-kicker) {
+  max-width: 390px;
+  margin: 28px 0 0;
+  color: #50595e;
+  font-size: 13px;
+  line-height: 1.65;
+}
+.service-cinema-copy > a {
+  width: max-content;
+  margin-top: 32px;
+  padding: 0 0 10px;
+  display: flex;
+  gap: 36px;
+  border-bottom: 1px solid #727b7f;
+  color: #111619;
+  font: 600 9px "IBM Plex Mono", monospace;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+.service-cinema-copy > a span { color: #d51f2a; }
+.service-cinema-nav {
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  z-index: 5;
+  right: 4.5vw;
+  bottom: 28px;
+  display: flex;
+  list-style: none;
+  background: rgba(9,12,14,.84);
+  backdrop-filter: blur(12px);
+}
+.service-cinema-nav button {
+  min-width: 145px;
+  padding: 13px 17px;
+  color: #c6ccce;
+  background: transparent;
+  border: 0;
+  border-right: 1px solid rgba(255,255,255,.17);
+  font: 600 8px "IBM Plex Mono", monospace;
+  letter-spacing: .08em;
+  text-align: left;
+  text-transform: uppercase;
+  transition: color .25s, background .25s;
+}
+.service-cinema-nav button span { margin-right: 12px; color: #76afd2; }
+.service-cinema-nav button.is-active { color: #111619; background: rgba(247,248,246,.97); }
+.service-cinema-nav button.is-active span { color: #d51f2a; }
+.service-cinema-progress {
+  height: 3px;
+  position: absolute;
+  z-index: 6;
+  inset: auto 0 0;
+  background: rgba(255,255,255,.18);
+}
+.service-cinema-progress i {
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: #1767a5;
+  transform: scaleX(0);
+  transform-origin: left center;
+  will-change: transform;
+}
+
+@media (max-width: 1050px) {
+  .service-cinema { height: 390vh; min-height: 2700px; }
+  .service-cinema-copy { width: 38vw; }
+  .service-cinema-copy h2 { font-size: clamp(42px, 5.3vw, 61px); }
+  .service-cinema-shade { background: linear-gradient(90deg, rgba(247,248,246,.98) 0 41%, rgba(247,248,246,.8) 46%, transparent 60%); }
+  .service-cinema-stage[data-service-scene="1"] .service-cinema-shade { background: linear-gradient(270deg, rgba(247,248,246,.98) 0 41%, rgba(247,248,246,.8) 46%, transparent 60%); }
+  .service-cinema-nav button { min-width: 116px; }
+}
+
+@media (max-width: 720px) {
+  .service-cinema { height: 370vh; min-height: 2400px; }
+  .service-cinema-stage { min-height: 620px; }
+  .service-cinema-video,
+  .service-cinema-video[data-service-video="1"],
+  .service-cinema-video[data-service-video="2"] { object-position: center 30%; }
+  .service-cinema-shade,
+  .service-cinema-stage[data-service-scene="1"] .service-cinema-shade {
+    background: linear-gradient(0deg, rgba(247,248,246,.99) 0 48%, rgba(247,248,246,.87) 58%, transparent 76%);
+  }
+  .service-cinema-grid,
+  .service-cinema-stage[data-service-scene="1"] .service-cinema-grid {
+    opacity: .1;
+    background-size: 48px 48px;
+    mask-image: linear-gradient(0deg, black, transparent 70%);
+  }
+  .service-cinema-copy,
+  .service-cinema-copy-right {
+    width: auto;
+    right: 6vw;
+    bottom: 82px;
+    left: 6vw;
+    top: auto;
+    transform: translateY(18px);
+  }
+  .service-cinema-copy.is-active { transform: translateY(0); }
+  .service-cinema-kicker { margin-bottom: 14px; font-size: 7px; }
+  .service-cinema-copy h2 { font-size: clamp(36px, 10.8vw, 48px); }
+  .service-cinema-copy > p:not(.service-cinema-kicker) { margin-top: 16px; font-size: 11px; line-height: 1.55; }
+  .service-cinema-copy > a { margin-top: 18px; font-size: 8px; }
+  .service-cinema-nav { right: 5vw; bottom: 24px; left: 5vw; }
+  .service-cinema-nav li { flex: 1; }
+  .service-cinema-nav button { width: 100%; min-width: 0; padding: 10px 8px; font-size: 0; text-align: center; }
+  .service-cinema-nav button span { margin: 0; font-size: 8px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .service-cinema { height: 100svh; min-height: 650px; }
+  .service-cinema-stage { position: relative; }
+  .service-cinema-video { display: none; }
+  .service-cinema-video:first-child { display: block; opacity: 1 !important; }
+  .service-cinema-nav,
+  .service-cinema-progress { display: none; }
+}
