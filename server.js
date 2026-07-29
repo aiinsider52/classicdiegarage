@@ -4,13 +4,17 @@ const rateLimit = require("express-rate-limit");
 const multer = require("multer");
 const nodemailer = require("nodemailer");
 const fs = require("fs");
+const os = require("os");
 const path = require("path");
 
 const app = express();
 const root = __dirname;
+const isServerless = Boolean(process.env.VERCEL || process.env.AWS_LAMBDA_FUNCTION_NAME);
+// Vercel/Lambda package dir is read-only; only /tmp is writable.
+const writableRoot = isServerless ? path.join(os.tmpdir(), "die-garage") : root;
 const cars = JSON.parse(fs.readFileSync(path.join(root, "data/cars.json"), "utf8"));
-const uploadDir = path.join(root, "uploads");
-const leadDir = path.join(root, "data/leads");
+const uploadDir = path.join(writableRoot, "uploads");
+const leadDir = path.join(writableRoot, "data", "leads");
 fs.mkdirSync(uploadDir, { recursive: true });
 fs.mkdirSync(leadDir, { recursive: true });
 
@@ -112,4 +116,11 @@ app.post("/api/leads", leadLimit, upload.array("photos", 6), async (req, res) =>
   res.json({ ok: true, id: lead.id });
 });
 
-app.listen(process.env.PORT || 4173, () => console.log(`Classic Car die Garage GmbH: http://localhost:${process.env.PORT || 4173}`));
+module.exports = app;
+
+if (!isServerless) {
+  const port = process.env.PORT || 4173;
+  app.listen(port, "0.0.0.0", () => {
+    console.log(`Classic Car die Garage GmbH: http://localhost:${port}`);
+  });
+}
