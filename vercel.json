@@ -1,15 +1,12 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "server.js",
-      "use": "@vercel/node"
+  "cleanUrls": true,
+  "functions": {
+    "api/index.js": {
+      "includeFiles": "{data/**,car.html,404.html}"
     }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "server.js"
-    }
+  },
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api" },
+    { "source": "/fahrzeuge/(.*)", "destination": "/api" }
   ]
 }

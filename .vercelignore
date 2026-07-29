@@ -1,0 +1,7 @@
+TestAI/**
+mockups/**
+.codex-render-simple.py
+node_modules/**
+uploads/**
+tmp/**
+output/**
