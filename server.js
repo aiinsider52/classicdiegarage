@@ -25,8 +25,10 @@ app.use(express.json({ limit: "1mb" }));
 app.use(express.urlencoded({ extended: true }));
 app.use(["/data", "/uploads", "/scripts", "/server.js", "/package.json", "/package-lock.json", "/.env", "/.env.example"], (_, res) => res.sendStatus(404));
 
-// Local only — on Vercel, express.static is ignored; files in public/ are served by the CDN.
-if (!isServerless) {
+// On Vercel, express.static is ignored; public/* is on the CDN, but "/" is claimed by Express.
+if (isServerless) {
+  app.get("/", (_, res) => res.sendFile(path.join(publicDir, "index.html")));
+} else {
   app.use(express.static(publicDir, { extensions: ["html"] }));
 }
 
