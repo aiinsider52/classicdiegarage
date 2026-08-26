@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Die Garage Marketplace · Homepage Mockup</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,300..800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="marketplace-home.css">
+</head>
+<body>
+  <header class="market-nav">
+    <a class="market-logo" href="#">DG <span>Die Garage</span></a>
+    <nav><a class="active" href="#market">Fahrzeuge</a><a href="#services">Werkstatt</a><a href="#sell">Auto verkaufen</a><a href="#contact">Über uns</a></nav>
+    <a class="market-contact" href="#contact">Kontakt ↗</a>
+  </header>
+
+  <main>
+    <section class="market-opening" id="market">
+      <div class="market-heading">
+        <p>Geprüfte Automobile · Roggwil TG</p>
+        <h1>Finden Sie<br><span>Ihr Fahrzeug.</span></h1>
+      </div>
+      <div class="market-count"><strong>06</strong><span>Fahrzeuge<br>im Bestand</span></div>
+      <form class="market-search">
+        <label><span>Suche</span><input id="market-query" type="search" placeholder="Marke oder Modell"></label>
+        <label><span>Kategorie</span><select id="market-category"><option value="all">Alle Fahrzeuge</option><option value="oldtimer">Oldtimer</option><option value="modern">Sport & Modern</option><option value="daily">Alltag</option></select></label>
+        <label><span>Status</span><select id="market-status"><option value="all">Alle Status</option><option value="available">Verfügbar</option><option value="reserved">Reserviert</option></select></label>
+        <button type="button" id="market-reset">Zurücksetzen</button>
+      </form>
+    </section>
+
+    <section class="market-stock">
+      <header class="stock-toolbar"><p><strong id="visible-count">6</strong> Ergebnisse</p><div><button class="selected" type="button" data-quick="all">Alle</button><button type="button" data-quick="oldtimer">Klassiker</button><button type="button" data-quick="modern">Modern</button><button type="button" data-quick="daily">Alltag</button></div></header>
+      <div class="market-grid" id="market-grid">
+        <a class="vehicle-card vehicle-feature" data-name="porsche 911 s 2.4" data-category="oldtimer" data-status="available" href="#">
+          <div class="vehicle-image"><img src="../public/assets/hero.jpg" alt="Porsche 911 S 2.4"><span class="status available">Verfügbar</span><small>DG–001</small></div>
+          <div class="vehicle-info"><p>1972 · 84.200 km · 190 PS</p><h2>Porsche 911 S 2.4</h2><div><span>5-Gang Handschaltung</span><strong>Preis auf Anfrage</strong></div></div>
+        </a>
+        <a class="vehicle-card" data-name="audi rs6 avant" data-category="modern" data-status="reserved" href="#">
+          <div class="vehicle-image"><img src="../public/assets/bmw.jpg" alt="Audi RS6 Avant"><span class="status reserved">Reserviert</span><small>DG–002</small></div>
+          <div class="vehicle-info"><p>2022 · 34.500 km · 600 PS</p><h2>Audi RS6 Avant</h2><div><span>Tiptronic · quattro</span><strong>CHF 109.900</strong></div></div>
+        </a>
+        <a class="vehicle-card" data-name="bmw 320d touring" data-category="daily" data-status="available" href="#">
+          <div class="vehicle-image"><img src="../public/assets/bmw.jpg" alt="BMW 320d Touring"><span class="status available">Verfügbar</span><small>DG–003</small></div>
+          <div class="vehicle-info"><p>2020 · 78.100 km · 190 PS</p><h2>BMW 320d Touring</h2><div><span>Automatik · xDrive</span><strong>CHF 27.800</strong></div></div>
+        </a>
+        <a class="vehicle-card" data-name="mercedes benz 280 sl pagode" data-category="oldtimer" data-status="sold" href="#">
+          <div class="vehicle-image"><img src="../public/assets/mercedes.jpg" alt="Mercedes-Benz 280 SL"><span class="status sold">Verkauft</span><small>DG–004</small></div>
+          <div class="vehicle-info"><p>1968 · 71.400 km · 170 PS</p><h2>Mercedes-Benz 280 SL</h2><div><span>Automatik · Heckantrieb</span><strong>CHF 112.000</strong></div></div>
+        </a>
+        <a class="vehicle-card" data-name="volkswagen golf gti clubsport" data-category="modern" data-status="available" href="#">
+          <div class="vehicle-image"><img src="../public/assets/care.jpg" alt="Volkswagen Golf GTI Clubsport"><span class="status available">Verfügbar</span><small>DG–005</small></div>
+          <div class="vehicle-info"><p>2021 · 42.800 km · 300 PS</p><h2>VW Golf GTI Clubsport</h2><div><span>DSG · Frontantrieb</span><strong>CHF 34.900</strong></div></div>
+        </a>
+        <a class="vehicle-card" data-name="land rover defender 110 p400" data-category="daily" data-status="reserved" href="#">
+          <div class="vehicle-image"><img src="../public/assets/mechanic.jpg" alt="Land Rover Defender 110"><span class="status reserved">Reserviert</span><small>DG–006</small></div>
+          <div class="vehicle-info"><p>2020 · 61.200 km · 400 PS</p><h2>Defender 110 P400</h2><div><span>Automatik · Allrad</span><strong>CHF 69.900</strong></div></div>
+        </a>
+        <aside class="vehicle-request"><span>Wunschfahrzeug</span><h2>Nicht dabei,<br>was Sie suchen?</h2><p>Wir suchen gezielt nach Ihrem Modell und prüfen es vor dem Kauf.</p><a href="#contact">Suchauftrag starten ↗</a></aside>
+      </div>
+      <div class="empty-stock" id="empty-stock">Keine passenden Fahrzeuge gefunden.</div>
+    </section>
+
+    <section class="market-confidence">
+      <p>Warum Die Garage</p>
+      <div><article><strong>01</strong><h3>Technisch geprüft</h3><span>Jedes Fahrzeug durchläuft unsere Werkstatt.</span></article><article><strong>02</strong><h3>Transparent beschrieben</h3><span>Historie, Zustand und Service klar dokumentiert.</span></article><article><strong>03</strong><h3>Persönlich übergeben</h3><span>Beratung, Probefahrt und Übergabe aus einer Hand.</span></article></div>
+    </section>
+
+    <section class="market-services" id="services">
+      <header><p>Werkstatt / Services</p><h2>Nach dem Kauf.<br><span>Vor jeder Fahrt.</span></h2></header>
+      <figure><img src="../public/assets/workshop.jpg" alt="Werkstatt von Die Garage"><figcaption>Roggwil TG · Werkstatt & Atelier</figcaption></figure>
+      <div class="service-menu">
+        <a href="#"><strong>Mechanik & Wartung</strong><span>Motor, Getriebe, Fahrwerk, Elektrik</span><i>↗</i></a>
+        <a href="#"><strong>Restaurierung</strong><span>Dokumentiert und substanzorientiert</span><i>↗</i></a>
+        <a href="#"><strong>Pflege & Lagerung</strong><span>Detailing, Saisoncheck, Bewegung</span><i>↗</i></a>
+      </div>
+    </section>
+
+    <section class="market-sell" id="sell">
+      <div><p>Fahrzeug verkaufen</p><h2>Ihr Fahrzeug.<br><span>Unser Angebot.</span></h2><small>Bewertung, Zahlung und Abholung aus einer Hand.</small></div>
+      <form><label>Marke & Modell<input placeholder="z. B. Porsche 911"></label><label>Jahrgang<input placeholder="z. B. 1972"></label><label>Kilometer<input placeholder="z. B. 84.200"></label><label>Kontakt<input placeholder="E-Mail oder Telefon"></label><button type="button">Bewertung anfragen <b>↗</b></button></form>
+    </section>
+
+    <section class="market-contact-section" id="contact"><div><p>Classic Car die Garage GmbH</p><h2>Automobile brauchen<br>einen guten Ort.</h2></div><address>St. Gallerstrasse 29<br>9325 Roggwil TG<br><br><a href="tel:+41712786060">071 278 60 60</a></address><a href="#">Route öffnen ↗</a></section>
+  </main>
+
+  <footer class="market-footer"><strong>DG</strong><span>Fahrzeuge · Werkstatt · Ankauf</span><span>Instagram · Impressum · Datenschutz</span></footer>
+  <script>
+    const cards = [...document.querySelectorAll('.vehicle-card')];
+    const query = document.querySelector('#market-query');
+    const category = document.querySelector('#market-category');
+    const status = document.querySelector('#market-status');
+    const count = document.querySelector('#visible-count');
+    const empty = document.querySelector('#empty-stock');
+    const quick = [...document.querySelectorAll('[data-quick]')];
+    const render = () => {
+      const term = query.value.trim().toLowerCase();
+      let visible = 0;
+      cards.forEach(card => {
+        const show = (!term || card.dataset.name.includes(term)) && (category.value === 'all' || card.dataset.category === category.value) && (status.value === 'all' || card.dataset.status === status.value);
+        card.hidden = !show;
+        if (show) visible += 1;
+      });
+      count.textContent = visible;
+      empty.hidden = visible !== 0;
+    };
+    [query, category, status].forEach(control => control.addEventListener('input', render));
+    quick.forEach(button => button.addEventListener('click', () => { quick.forEach(item => item.classList.remove('selected')); button.classList.add('selected'); category.value = button.dataset.quick; render(); }));
+    document.querySelector('#market-reset').addEventListener('click', () => { query.value = ''; category.value = 'all'; status.value = 'all'; quick.forEach(item => item.classList.toggle('selected', item.dataset.quick === 'all')); render(); });
+  </script>
+</body>
+</html>

@@ -414,6 +414,17 @@ footer { background: var(--ink); }
 .equipment-list { margin-top:55px; }
 #equipment-list { display:flex; flex-wrap:wrap; gap:8px; }
 #equipment-list span { padding:10px 13px; border:1px solid var(--line); font-size:9px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; }
+.page-header { min-height:82px; display:flex; align-items:center; justify-content:space-between; }
+.page-header nav { display:flex; align-items:center; gap:28px; }
+.page-hero { display:grid; grid-template-columns:minmax(0,1.2fr) minmax(280px,.8fr); gap:7vw; align-items:end; }
+.page-content { padding:80px 6vw 120px; }
+.page-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; }
+.info-card { min-width:0; padding:30px; border:1px solid var(--line); background:var(--paper); }
+.info-card strong { display:block; min-height:2em; margin-bottom:25px; color:var(--brass); font:700 42px/1 "Barlow Condensed"; }
+.info-card h2 { font:600 35px "Barlow Condensed"; text-transform:uppercase; }
+.info-card p { color:#666; font-size:13px; line-height:1.7; }
+.contact-page-grid { display:grid; grid-template-columns:minmax(0,1fr) minmax(320px,1fr); gap:8vw; }
+.full-car-grid { display:grid; }
 .catalog-toolbar { display:flex; align-items:end; justify-content:space-between; gap:25px; }
 .catalog-toolbar label { display:grid; gap:8px; color:#777; font-size:8px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; }
 .catalog-toolbar select { min-width:180px; padding:10px 28px 10px 10px; border:1px solid var(--line); background:transparent; color:var(--ink); font:600 9px "DM Sans"; text-transform:uppercase; }
@@ -494,10 +505,15 @@ footer { background: var(--ink); }
   .detail-gallery img, .detail-gallery img:first-child { min-height: 360px; grid-row: auto; }
   .buy-options article { border-right: 0; border-bottom: 1px solid rgba(0,0,0,.3); }
   .catalog-toolbar { align-items:stretch; flex-direction:column; }
+  .page-header nav { position:absolute; top:100%; left:0; right:0; padding:24px 5vw; flex-direction:column; align-items:stretch; color:white; background:var(--ink); border-top:1px solid rgba(255,255,255,.14); }
+  .page-hero,.contact-page-grid { grid-template-columns:1fr; }
+  .page-content { padding:60px 5vw 90px; }
+  .page-grid { grid-template-columns:1fr; }
   #catalog-grid.full-car-grid { grid-template-columns:1fr; gap:22px; }
   #catalog-grid .catalog-card .car-info { min-height:auto; }
 }
 
 @media (min-width:701px) and (max-width:1250px) {
   #catalog-grid.full-car-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .page-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
 }

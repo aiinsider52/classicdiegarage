@@ -7,6 +7,8 @@
 - Strukturierte Daten für Betrieb und Fahrzeuge
 - Plausible Analytics auf der Produktionsdomain
 - Lokale Unternehmensdaten für Roggwil
+- Dynamische Sitemap: neue veröffentlichte Fahrzeuge werden automatisch ergänzt
+- Entwürfe und Adminbereich werden nicht indexiert
 
 ## Vor Veröffentlichung erforderlich
 
@@ -16,6 +18,10 @@
 4. `https://classiccardiegarage.ch/sitemap.xml` in Search Console einreichen.
 5. Vertretungsberechtigte Person, Handelsregistereintrag und UID im Impressum ergänzen.
 6. Echte VIN, Fahrzeugdaten, Preise und Fotos vor Veröffentlichung gegen Unterlagen prüfen.
+7. Vercel Blob verbinden und `BLOB_READ_WRITE_TOKEN` setzen.
+8. `ADMIN_USER` und ein langes, einzigartiges `ADMIN_PASSWORD` setzen.
+9. Mindestens einen Anfragekanal konfigurieren: SMTP, Telegram oder CRM.
+10. Optional Cloudflare Turnstile aktivieren.
 
 ## Google Business Profile
 

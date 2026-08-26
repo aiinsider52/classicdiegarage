@@ -5,6 +5,31 @@ const footer = document.querySelector(".site-footer") || (() => {
   return element;
 })();
 
+const pageHeader = document.querySelector(".page-header");
+if (pageHeader) {
+  const pageNav = pageHeader.querySelector("nav");
+  if (pageNav && !pageHeader.querySelector(".menu-toggle")) {
+    if (!pageNav.id) pageNav.id = "page-navigation";
+    const menu = document.createElement("button");
+    menu.className = "menu-toggle";
+    menu.type = "button";
+    menu.textContent = "Menü";
+    menu.setAttribute("aria-controls", pageNav.id);
+    menu.setAttribute("aria-expanded", "false");
+    menu.addEventListener("click", () => {
+      const open = pageNav.classList.toggle("open");
+      menu.setAttribute("aria-expanded", String(open));
+      menu.textContent = open ? "Schliessen" : "Menü";
+    });
+    pageNav.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => {
+      pageNav.classList.remove("open");
+      menu.setAttribute("aria-expanded", "false");
+      menu.textContent = "Menü";
+    }));
+    pageHeader.appendChild(menu);
+  }
+}
+
 if (location.hostname === "classiccardiegarage.ch" && !document.querySelector("script[data-domain='classiccardiegarage.ch']")) {
   const analytics = document.createElement("script");
   analytics.defer = true;
@@ -58,7 +83,7 @@ footer.innerHTML = `
       <a href="https://maps.google.com/?q=St.+Gallerstrasse+29,+9325+Roggwil" target="_blank" rel="noopener">Route öffnen ↗</a>
     </div>
     <div><span class="footer-label">Besuchen</span><p>St. Gallerstrasse 29<br>9325 Roggwil<br>Schweiz</p><p>Termin nach Vereinbarung</p></div>
-    <div><span class="footer-label">Leistungen</span><a href="/termin.html">Termin buchen</a><a href="/services/autoreparatur-roggwil.html">Autoreparatur Roggwil</a><a href="/services/oldtimer-service-roggwil.html">Oldtimer-Service</a><a href="/services/autoankauf-roggwil.html">Autoankauf Roggwil</a><a href="/fahrzeuge.html">Fahrzeuge kaufen</a></div>
+    <div><span class="footer-label">Leistungen</span><a href="/leistungen.html">Alle Leistungen</a><a href="/termin.html">Termin buchen</a><a href="/services/reparatur.html">Reparatur & Diagnose</a><a href="/services/reifenwechsel.html">Reifen & Einlagerung</a><a href="/services/restaurierung.html">Restaurierung</a><a href="/fahrzeuge.html">Fahrzeuge kaufen</a></div>
     <div><span class="footer-label">Marken</span><a href="/brands/porsche.html">Porsche</a><a href="/brands/mercedes.html">Mercedes-Benz</a><a href="/brands/bmw.html">BMW</a></div>
   </div>
   <div class="footer-bottom">

@@ -2,4 +2,6 @@ User-agent: *
 Allow: /
 Disallow: /api/
 Disallow: /uploads/
+Disallow: /admin
+Disallow: /admin.html
 Sitemap: https://classiccardiegarage.ch/sitemap.xml

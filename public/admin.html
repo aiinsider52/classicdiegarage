@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <title>Fahrzeugverwaltung | Die Garage</title>
+  <link rel="stylesheet" href="/admin.css">
+</head>
+<body>
+  <section class="admin-login" id="login-panel">
+    <form id="login-form">
+      <span class="admin-mark">DG</span>
+      <p>Interne Verwaltung</p>
+      <h1>Werkstatt-<br>journal.</h1>
+      <label>Benutzer<input required name="username" autocomplete="username"></label>
+      <label>Passwort<input required name="password" type="password" autocomplete="current-password"></label>
+      <button>Anmelden</button>
+      <output id="login-status" aria-live="polite"></output>
+    </form>
+  </section>
+
+  <div class="admin-app" id="admin-app" hidden>
+    <header class="admin-header">
+      <a href="/" class="admin-brand"><span>DG</span><strong>Die Garage</strong></a>
+      <div><span id="storage-status">Speicher wird geprüft</span><a href="/fahrzeuge.html" target="_blank">Katalog öffnen ↗</a><button id="logout-button">Abmelden</button></div>
+    </header>
+    <main class="admin-layout">
+      <aside class="admin-sidebar">
+        <div class="admin-sidebar-head"><div><small>Bestand</small><strong id="admin-count">0 Fahrzeuge</strong></div><button id="new-button">+ Neu</button></div>
+        <div class="admin-car-list" id="admin-car-list"></div>
+      </aside>
+
+      <section class="admin-editor">
+        <div class="admin-editor-head">
+          <div><small id="editor-kicker">Neuer Eintrag</small><h2 id="editor-title">Fahrzeug erfassen</h2></div>
+          <div class="admin-editor-actions"><button class="danger" id="delete-button" type="button" hidden>Löschen</button><button class="primary" form="car-form" type="submit">Speichern</button></div>
+        </div>
+        <form id="car-form">
+          <input type="hidden" name="originalSlug">
+          <fieldset>
+            <legend>01 · Identität</legend>
+            <div class="admin-form-grid">
+              <label>Marke<input required name="brand" placeholder="Porsche"></label>
+              <label>Modell<input required name="model" placeholder="911 S 2.4"></label>
+              <label>Baujahr<input required name="year" type="number" min="1886" max="2030"></label>
+              <label>Slug<input name="slug" placeholder="wird automatisch erzeugt"></label>
+              <label>Vollständiger VIN<input name="vinPrivate" autocomplete="off" placeholder="nur intern vollständig"></label>
+              <label>Publikation<span class="admin-switch"><input name="published" type="checkbox"><i></i><b>Im Katalog sichtbar</b></span></label>
+              <label>Datenprüfung<span class="admin-switch"><input name="verified" type="checkbox"><i></i><b>Unterlagen geprüft</b></span></label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>02 · Verkauf</legend>
+            <div class="admin-form-grid">
+              <label>Status<select name="statusKey"><option value="available">Verfügbar</option><option value="reserved">Reserviert</option><option value="sold">Verkauft</option></select></label>
+              <label>Kategorie<select name="category"><option value="oldtimer">Oldtimer</option><option value="modern">Modern</option><option value="daily">Alltag</option></select></label>
+              <label>Preis CHF<input name="priceValue" type="number" min="0" step="100"></label>
+              <label>Preisanzeige<input name="price" placeholder="Preis auf Anfrage"></label>
+              <label>Kilometer<input name="mileage" placeholder="84.200 km"></label>
+              <label>Leistung<input name="power" placeholder="190 PS"></label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>03 · Technik</legend>
+            <div class="admin-form-grid">
+              <label>Kraftstoff<input name="fuel"></label><label>Getriebe<input name="transmission"></label>
+              <label>Antrieb<input name="drive"></label><label>Farbe<input name="color"></label>
+            </div>
+            <label>Beschreibung<textarea name="description" rows="4"></textarea></label>
+            <div class="admin-form-grid">
+              <label>Ausstattung · eine Zeile pro Eintrag<textarea name="equipment" rows="7"></textarea></label>
+              <label>Servicehistorie · eine Zeile pro Eintrag<textarea name="service" rows="7"></textarea></label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>04 · Bilder</legend>
+            <label>Neue Fotos<input id="image-files" type="file" name="images" accept="image/jpeg,image/png,image/webp" multiple><small>JPEG, PNG oder WebP · maximal 10 MB je Bild</small></label>
+            <label>Galerie-URLs · eine Zeile pro Bild<textarea name="gallery" rows="6"></textarea></label>
+            <div class="admin-form-grid"><label>Titelbild<input name="image"></label><label>Fallback-Bild<input name="fallback" value="/assets/workshop.jpg"></label></div>
+            <div id="image-preview" class="admin-image-preview"></div>
+          </fieldset>
+          <output id="editor-status" class="admin-status" aria-live="polite"></output>
+        </form>
+      </section>
+    </main>
+  </div>
+  <script src="/admin.js"></script>
+</body>
+</html>

@@ -167,13 +167,14 @@
       <div class="service-more-heading">
         <p class="eyebrow dark">Weitere Leistungen</p>
         <h2 id="service-more-title">Alles rund ums Auto.<br><em>Ein Ansprechpartner.</em></h2>
+        <a class="service-more-all" href="leistungen.html">Alle Leistungen ansehen <span>↗</span></a>
       </div>
       <div class="service-more-grid">
-        <a href="termin.html?service=reparatur"><span>01</span><strong>Reparatur & Diagnose</strong><small>Service, Motor, Bremsen, Elektrik</small></a>
-        <a href="termin.html?service=reifen"><span>02</span><strong>Reifenwechsel</strong><small>Sommer- und Winterräder</small></a>
-        <a href="termin.html?service=reifenhotel"><span>03</span><strong>Reifenhotel</strong><small>Saubere, sichere Einlagerung</small></a>
-        <a href="termin.html?service=detailing"><span>04</span><strong>Detailing</strong><small>Innenraum, Lack und Pflege</small></a>
-        <a href="termin.html?service=saisoncheck"><span>05</span><strong>Saison- & MFK-Check</strong><small>Prüfung vor Saison oder Termin</small></a>
+        <a href="services/reparatur.html"><span>01</span><strong>Reparatur & Diagnose</strong><small>Service, Motor, Bremsen, Elektrik</small></a>
+        <a href="services/reifenwechsel.html"><span>02</span><strong>Reifenwechsel</strong><small>Sommer- und Winterräder</small></a>
+        <a href="services/reifenhotel.html"><span>03</span><strong>Reifenhotel</strong><small>Saubere, sichere Einlagerung</small></a>
+        <a href="services/detailing.html"><span>04</span><strong>Detailing</strong><small>Innenraum, Lack und Pflege</small></a>
+        <a href="services/saison-mfk-check.html"><span>05</span><strong>Saison- & MFK-Check</strong><small>Prüfung vor Saison oder Termin</small></a>
       </div>
     </section>
 
@@ -190,7 +191,7 @@
           <button data-filter="daily">Alltag</button>
         </div>
       </div>
-      <div class="car-grid">
+      <div class="car-grid" id="home-car-grid">
         <a class="car-card status-available" data-category="oldtimer" href="/fahrzeuge/porsche-911-s-24-1972">
           <div class="car-image">
             <img src="assets/hero.jpg" alt="Klassischer Porsche 911" loading="lazy">
@@ -277,6 +278,7 @@
 
   <footer class="site-footer"></footer>
   <script src="script.js"></script>
+  <script src="home-catalog.js"></script>
   <script src="cinema.js"></script>
   <script src="service-cinema.js"></script>
   <script src="lead.js"></script>

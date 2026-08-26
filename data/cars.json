@@ -17,12 +17,28 @@
     "category": "oldtimer",
     "status": "Verfügbar",
     "statusKey": "available",
-    "image": "/assets/car-porsche.jpg",
+    "published": true,
+    "verified": false,
+    "image": "/assets/hero.jpg",
     "fallback": "/assets/hero.jpg",
-    "gallery": ["/assets/car-porsche.jpg", "/assets/hero.jpg", "/assets/workshop.jpg"],
+    "gallery": [
+      "/assets/hero.jpg",
+      "/assets/workshop.jpg",
+      "/assets/care.jpg"
+    ],
     "description": "Matching-Numbers Klassiker mit dokumentierter Historie, behutsam erhaltener Patina und frisch revidierter Einspritzanlage.",
-    "equipment": ["Matching Numbers", "Fuchs-Felgen", "Leder Schwarz", "Historische Dokumentation", "Fahrzeugexpertise"],
-    "service": ["2026: Große Inspektion und Ventilspiel", "2024: Einspritzanlage revidiert", "2021: Fahrwerk und Bremsen erneuert"]
+    "equipment": [
+      "Matching Numbers",
+      "Fuchs-Felgen",
+      "Leder Schwarz",
+      "Historische Dokumentation",
+      "Fahrzeugexpertise"
+    ],
+    "service": [
+      "2026: Große Inspektion und Ventilspiel",
+      "2024: Einspritzanlage revidiert",
+      "2021: Fahrwerk und Bremsen erneuert"
+    ]
   },
   {
     "slug": "audi-rs6-avant-2022",
@@ -42,12 +58,28 @@
     "category": "modern",
     "status": "Reserviert",
     "statusKey": "reserved",
-    "image": "/assets/car-audi-rs6.jpg",
+    "published": true,
+    "verified": false,
+    "image": "/assets/bmw.jpg",
     "fallback": "/assets/bmw.jpg",
-    "gallery": ["/assets/car-audi-rs6.jpg", "/assets/bmw.jpg", "/assets/care.jpg"],
+    "gallery": [
+      "/assets/bmw.jpg",
+      "/assets/care.jpg",
+      "/assets/workshop.jpg"
+    ],
     "description": "Schweizer Fahrzeug aus erster Hand. Vollständige Historie, Keramikbremse und Herstellergarantie.",
-    "equipment": ["Keramikbremse", "Dynamikpaket Plus", "Bang & Olufsen", "Panorama-Glasdach", "Head-up-Display"],
-    "service": ["2026: Inspektion bei Audi", "2025: Neue Michelin Pilot Sport", "2024: Bremsflüssigkeit erneuert"]
+    "equipment": [
+      "Keramikbremse",
+      "Dynamikpaket Plus",
+      "Bang & Olufsen",
+      "Panorama-Glasdach",
+      "Head-up-Display"
+    ],
+    "service": [
+      "2026: Inspektion bei Audi",
+      "2025: Neue Michelin Pilot Sport",
+      "2024: Bremsflüssigkeit erneuert"
+    ]
   },
   {
     "slug": "bmw-320d-touring-2020",
@@ -67,12 +99,28 @@
     "category": "daily",
     "status": "Verfügbar",
     "statusKey": "available",
-    "image": "/assets/car-bmw-320d.jpg",
+    "published": true,
+    "verified": false,
+    "image": "/assets/bmw.jpg",
     "fallback": "/assets/bmw.jpg",
-    "gallery": ["/assets/car-bmw-320d.jpg", "/assets/bmw.jpg", "/assets/workshop.jpg"],
+    "gallery": [
+      "/assets/bmw.jpg",
+      "/assets/workshop.jpg",
+      "/assets/care.jpg"
+    ],
     "description": "Gepflegter Alltagswagen mit M-Paket, Anhängerkupplung und vollständigem digitalen Serviceheft.",
-    "equipment": ["M Sportpaket", "xDrive", "Anhängerkupplung", "LED-Scheinwerfer", "Digitales Serviceheft"],
-    "service": ["2026: Ölservice und MFK neu", "2025: Vorderbremsen erneuert", "2024: Getriebeservice"]
+    "equipment": [
+      "M Sportpaket",
+      "xDrive",
+      "Anhängerkupplung",
+      "LED-Scheinwerfer",
+      "Digitales Serviceheft"
+    ],
+    "service": [
+      "2026: Ölservice und MFK neu",
+      "2025: Vorderbremsen erneuert",
+      "2024: Getriebeservice"
+    ]
   },
   {
     "slug": "mercedes-280-sl-1968",
@@ -92,12 +140,28 @@
     "category": "oldtimer",
     "status": "Verkauft",
     "statusKey": "sold",
+    "published": true,
+    "verified": false,
     "image": "/assets/mercedes.jpg",
     "fallback": "/assets/mercedes.jpg",
-    "gallery": ["/assets/mercedes.jpg", "/assets/care.jpg", "/assets/workshop.jpg"],
+    "gallery": [
+      "/assets/mercedes.jpg",
+      "/assets/care.jpg",
+      "/assets/workshop.jpg"
+    ],
     "description": "Elegante Pagode in klassischer Farbkombination. Schweizer Fahrzeug mit umfangreicher Dokumentation.",
-    "equipment": ["Hardtop", "Lederausstattung", "Automatik", "Becker Radio", "Fahrzeugexpertise"],
-    "service": ["2026: Fahrzeugexpertise Note 2", "2025: Kühlsystem überholt", "2023: Verdeck erneuert"]
+    "equipment": [
+      "Hardtop",
+      "Lederausstattung",
+      "Automatik",
+      "Becker Radio",
+      "Fahrzeugexpertise"
+    ],
+    "service": [
+      "2026: Fahrzeugexpertise Note 2",
+      "2025: Kühlsystem überholt",
+      "2023: Verdeck erneuert"
+    ]
   },
   {
     "slug": "volkswagen-golf-gti-clubsport-2021",
@@ -117,12 +181,28 @@
     "category": "modern",
     "status": "Verfügbar",
     "statusKey": "available",
-    "image": "/assets/car-golf-gti.jpg",
+    "published": true,
+    "verified": false,
+    "image": "/assets/care.jpg",
     "fallback": "/assets/care.jpg",
-    "gallery": ["/assets/car-golf-gti.jpg", "/assets/care.jpg", "/assets/workshop.jpg"],
+    "gallery": [
+      "/assets/care.jpg",
+      "/assets/workshop.jpg",
+      "/assets/bmw.jpg"
+    ],
     "description": "Kompakter Sportler mit vollständigem Serviceheft, Clubsport-Paket und frischer MFK.",
-    "equipment": ["Clubsport-Paket", "DSG", "Matrix LED", "ACC", "Rückfahrkamera"],
-    "service": ["2026: MFK und Service neu", "2025: Reifen ersetzt", "2024: Bremsflüssigkeit erneuert"]
+    "equipment": [
+      "Clubsport-Paket",
+      "DSG",
+      "Matrix LED",
+      "ACC",
+      "Rückfahrkamera"
+    ],
+    "service": [
+      "2026: MFK und Service neu",
+      "2025: Reifen ersetzt",
+      "2024: Bremsflüssigkeit erneuert"
+    ]
   },
   {
     "slug": "land-rover-defender-110-2020",
@@ -142,11 +222,27 @@
     "category": "daily",
     "status": "Reserviert",
     "statusKey": "reserved",
-    "image": "/assets/car-defender.jpg",
+    "published": true,
+    "verified": false,
+    "image": "/assets/mechanic.jpg",
     "fallback": "/assets/mechanic.jpg",
-    "gallery": ["/assets/car-defender.jpg", "/assets/mechanic.jpg", "/assets/workshop.jpg"],
+    "gallery": [
+      "/assets/mechanic.jpg",
+      "/assets/workshop.jpg",
+      "/assets/care.jpg"
+    ],
     "description": "Vielseitiger Defender mit Luftfederung, Anhängerkupplung und lückenloser Wartung.",
-    "equipment": ["Luftfederung", "Allrad", "Anhängerkupplung", "Meridian Sound", "360° Kamera"],
-    "service": ["2026: Jahresservice", "2025: Bremsen vorne", "2024: Softwareupdate"]
+    "equipment": [
+      "Luftfederung",
+      "Allrad",
+      "Anhängerkupplung",
+      "Meridian Sound",
+      "360° Kamera"
+    ],
+    "service": [
+      "2026: Jahresservice",
+      "2025: Bremsen vorne",
+      "2024: Softwareupdate"
+    ]
   }
 ]

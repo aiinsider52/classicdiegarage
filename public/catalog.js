@@ -4,19 +4,20 @@ const categoryButtons = document.querySelectorAll("[data-filter]");
 const statusFilter = document.querySelector("#status-filter");
 let cars = [];
 let category = "all";
+const escapeHtml = (value) => String(value ?? "").replace(/[&<>"']/g, (character) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[character]);
 
 const card = (car, index) => `
-  <a class="car-card catalog-card status-${car.statusKey}" data-category="${car.category}" data-status="${car.statusKey}" href="/fahrzeuge/${car.slug}">
+  <a class="car-card catalog-card status-${escapeHtml(car.statusKey)}" data-category="${escapeHtml(car.category)}" data-status="${escapeHtml(car.statusKey)}" href="/fahrzeuge/${encodeURIComponent(car.slug)}">
     <div class="car-image">
-      <img src="${car.image}" onerror="this.src='${car.fallback}'" alt="${car.year} ${car.brand} ${car.model}" loading="lazy">
-      <span class="catalog-status">${car.status}</span>
+      <img src="${escapeHtml(car.image)}" onerror="this.src='/assets/workshop.jpg'" alt="${escapeHtml(`${car.year} ${car.brand} ${car.model}`)}" loading="lazy">
+      <span class="catalog-status">${escapeHtml(car.status)}</span>
       <small class="catalog-lot">DG — ${String(index + 1).padStart(2, "0")}</small>
     </div>
     <div class="car-info">
-      <p>${car.year} · ${car.mileage} · ${car.power}</p>
-      <h3>${car.brand} ${car.model}</h3>
-      <div class="catalog-meta"><span>${car.transmission}</span><span>${car.fuel}</span></div>
-      <div class="catalog-price"><strong>${car.price}</strong><span aria-hidden="true">↗</span></div>
+      <p>${escapeHtml(car.year)} · ${escapeHtml(car.mileage)} · ${escapeHtml(car.power)}</p>
+      <h3>${escapeHtml(car.brand)} ${escapeHtml(car.model)}</h3>
+      <div class="catalog-meta"><span>${escapeHtml(car.transmission)}</span><span>${escapeHtml(car.fuel)}</span></div>
+      <div class="catalog-price"><strong>${escapeHtml(car.price)}</strong><span aria-hidden="true">↗</span></div>
     </div>
   </a>`;
 
@@ -34,4 +35,10 @@ categoryButtons.forEach((button) => button.addEventListener("click", () => {
   render();
 }));
 statusFilter.addEventListener("change", render);
-fetch("/api/cars").then((response) => response.json()).then((data) => { cars = data; render(); });
+fetch("/api/cars").then((response) => {
+  if (!response.ok) throw new Error("Katalog nicht verfügbar");
+  return response.json();
+}).then((data) => { cars = data; render(); }).catch(() => {
+  grid.innerHTML = '<p class="catalog-error">Fahrzeuge konnten nicht geladen werden. Bitte versuchen Sie es später erneut.</p>';
+  count.textContent = "0";
+});
