@@ -1435,7 +1435,7 @@ details p { color: #adb7ba; }
 .legal-layout { padding: clamp(80px,9vw,140px) 6vw; display: grid; grid-template-columns: 250px minmax(0,850px); gap: clamp(60px,9vw,145px); justify-content: center; align-items: start; }
 .legal-sidebar { position: sticky; top: 105px; }
 .legal-sidebar > .eyebrow { margin-bottom: 18px; }
-.legal-sidebar nav { display: grid; gap: 0; border-top: 1px solid var(--line); font: 600 9px "IBM Plex Mono",monospace; letter-spacing: .07em; text-transform: uppercase; }
+.legal-sidebar nav { position: static; inset: auto; display: grid; gap: 0; border-top: 1px solid var(--line); font: 600 9px "IBM Plex Mono",monospace; letter-spacing: .07em; text-transform: uppercase; }
 .legal-sidebar nav a { padding: 15px 0; display: grid; grid-template-columns: 36px 1fr; color: #4e585b; border-bottom: 1px solid var(--line); transition: color .2s,padding-left .2s; }
 .legal-sidebar nav a:hover { padding-left: 7px; color: var(--forest); }
 .legal-sidebar nav a span { color: #9aa2a4; }
