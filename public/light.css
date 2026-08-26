@@ -1414,3 +1414,87 @@ details p { color: #adb7ba; }
 @media (max-width: 580px) {
   .about-page .about-page-hero { padding: 58px 5vw 70px; }
 }
+
+/* Legal documents */
+.legal-document { color: var(--ink); background: #e9edeb; }
+.legal-hero { min-height: 690px; position: relative; padding: clamp(65px,7vw,110px) 5vw; display: grid; grid-template-columns: minmax(360px,.88fr) minmax(0,1.12fr); gap: 7vw; align-items: center; color: white; background: #0d1113; overflow: hidden; isolation: isolate; }
+.legal-hero::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: .18; background-image: linear-gradient(rgba(255,255,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.08) 1px,transparent 1px); background-size: 48px 48px; mask-image: linear-gradient(90deg,#000,transparent 75%); }
+.legal-hero-copy { position: relative; z-index: 2; }
+.legal-hero h1 { margin: 22px 0 38px; font-size: clamp(78px,10vw,158px); line-height: .68; }
+.legal-hero h1 em { color: var(--brass); font-size: .6em; }
+.legal-hero-copy > p:not(.eyebrow) { max-width: 520px; color: #b8c1c4; font-size: 15px; line-height: 1.75; }
+.legal-hero figure { min-height: 500px; position: relative; margin: 0; overflow: hidden; border: 1px solid rgba(255,255,255,.17); box-shadow: 24px 24px 0 #173d42; }
+.legal-hero figure::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg,transparent 55%,rgba(8,12,14,.82)); }
+.legal-hero figure img { filter: saturate(.62) contrast(1.08); }
+.legal-hero figcaption { position: absolute; right: 22px; bottom: 20px; z-index: 1; color: white; font: 600 8px "IBM Plex Mono",monospace; letter-spacing: .11em; text-transform: uppercase; }
+.legal-index { position: absolute; right: 2vw; bottom: -4vw; z-index: 1; color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,.1); font: 850 clamp(150px,22vw,360px)/.7 "Archivo",sans-serif; font-variation-settings: "wdth" 75; letter-spacing: -.08em; }
+.legal-meta { width: min(520px,100%); margin-top: 40px; padding-top: 22px; display: grid; grid-template-columns: auto 1fr; gap: 10px 24px; border-top: 1px solid rgba(255,255,255,.18); }
+.legal-meta span { color: var(--brass); font: 600 8px "IBM Plex Mono",monospace; letter-spacing: .1em; text-transform: uppercase; }
+.legal-meta strong { color: #e8edee; font-size: 11px; font-weight: 600; }
+
+.legal-layout { padding: clamp(80px,9vw,140px) 6vw; display: grid; grid-template-columns: 250px minmax(0,850px); gap: clamp(60px,9vw,145px); justify-content: center; align-items: start; }
+.legal-sidebar { position: sticky; top: 105px; }
+.legal-sidebar > .eyebrow { margin-bottom: 18px; }
+.legal-sidebar nav { display: grid; gap: 0; border-top: 1px solid var(--line); font: 600 9px "IBM Plex Mono",monospace; letter-spacing: .07em; text-transform: uppercase; }
+.legal-sidebar nav a { padding: 15px 0; display: grid; grid-template-columns: 36px 1fr; color: #4e585b; border-bottom: 1px solid var(--line); transition: color .2s,padding-left .2s; }
+.legal-sidebar nav a:hover { padding-left: 7px; color: var(--forest); }
+.legal-sidebar nav a span { color: #9aa2a4; }
+.legal-sidebar-contact { margin-top: 42px; padding: 24px; color: white; background: var(--forest); box-shadow: 10px 10px 0 var(--brass); }
+.legal-sidebar-contact > span { color: var(--brass); font: 600 8px "IBM Plex Mono",monospace; letter-spacing: .1em; text-transform: uppercase; }
+.legal-sidebar-contact > a { margin: 18px 0 12px; display: block; font: 800 25px "Archivo",sans-serif; letter-spacing: -.04em; }
+.legal-sidebar-contact p { margin: 0; color: #bdcacc; font-size: 11px; line-height: 1.65; }
+
+.legal-copy > header { padding-bottom: 58px; border-bottom: 2px solid var(--ink); }
+.legal-copy > header h2 { max-width: 800px; margin: 0 0 24px; font: 850 clamp(52px,6.4vw,92px)/.82 "Archivo",sans-serif; font-variation-settings: "wdth" 78; letter-spacing: -.06em; text-transform: uppercase; }
+.legal-copy > header h2 em { color: var(--forest); font-family: "Bodoni Moda",serif; font-size: .78em; font-weight: 600; text-transform: none; }
+.legal-copy > header > p:last-child { max-width: 640px; margin: 0; color: #657074; font-size: 15px; line-height: 1.8; }
+.legal-copy > section { padding: 42px 0; display: grid; grid-template-columns: 70px minmax(0,1fr); gap: 26px; border-bottom: 1px solid var(--line); scroll-margin-top: 100px; }
+.legal-section-number { padding-top: 5px; color: var(--forest); font: 700 12px "IBM Plex Mono",monospace; }
+.legal-copy h3 { margin: 0 0 16px; font: 800 clamp(28px,3vw,42px)/1 "Archivo",sans-serif; font-variation-settings: "wdth" 84; letter-spacing: -.035em; }
+.legal-copy section p { max-width: 690px; margin: 0; color: #525d60; font-size: 14px; line-height: 1.85; }
+.legal-copy section p strong { color: var(--ink); }
+.legal-copy section p a { color: var(--forest); border-bottom: 1px solid currentColor; }
+.legal-inline-link { margin-top: 20px; display: inline-flex; gap: 14px; color: var(--forest); font: 600 10px "IBM Plex Mono",monospace; letter-spacing: .08em; }
+.legal-inline-link span { color: var(--brass); }
+.legal-required { margin-top: 58px; padding: clamp(28px,4vw,48px); position: relative; color: white; background: #173d42; border-left: 5px solid var(--brass); overflow: hidden; }
+.legal-required::after { content: "!"; position: absolute; right: 20px; bottom: -55px; color: rgba(255,255,255,.07); font: 850 210px/.8 "Archivo",sans-serif; }
+.legal-required > span { color: var(--brass); font: 600 9px "IBM Plex Mono",monospace; letter-spacing: .12em; text-transform: uppercase; }
+.legal-required h3 { max-width: 620px; margin: 22px 0; color: white; font-size: clamp(32px,4vw,52px); }
+.legal-required p { max-width: 670px; margin: 0; color: #c7d2d4; font-size: 13px; line-height: 1.8; }
+
+.legal-switch { padding: clamp(70px,8vw,110px) 6vw; color: white; background: var(--forest); }
+.legal-switch > span { color: var(--brass); font: 600 9px "IBM Plex Mono",monospace; letter-spacing: .12em; text-transform: uppercase; }
+.legal-switch a { margin-top: 22px; padding: 26px 0; display: grid; grid-template-columns: 1fr auto auto; gap: 28px; align-items: center; border-top: 1px solid rgba(255,255,255,.22); border-bottom: 1px solid rgba(255,255,255,.22); }
+.legal-switch strong { font: 850 clamp(48px,7vw,104px)/.8 "Archivo",sans-serif; font-variation-settings: "wdth" 78; letter-spacing: -.055em; text-transform: uppercase; }
+.legal-switch i { color: rgba(255,255,255,.38); font: normal 700 34px "IBM Plex Mono",monospace; }
+.legal-switch b { width: 62px; height: 62px; display: grid; place-items: center; color: var(--ink); background: var(--brass); border-radius: 50%; font-size: 21px; transition: transform .25s; }
+.legal-switch a:hover b { transform: rotate(45deg); }
+
+@media (max-width: 900px) {
+  .legal-hero { grid-template-columns: 1fr; }
+  .legal-hero figure { min-height: 420px; }
+  .legal-layout { grid-template-columns: 1fr; gap: 70px; }
+  .legal-sidebar { position: static; }
+  .legal-sidebar nav { grid-template-columns: 1fr 1fr; }
+  .legal-sidebar nav a:nth-child(odd) { border-right: 1px solid var(--line); }
+  .legal-sidebar nav a { padding-right: 16px; padding-left: 16px; }
+  .legal-sidebar-contact { max-width: 360px; }
+}
+
+@media (max-width: 580px) {
+  .legal-hero { min-height: 0; padding: 58px 5vw 72px; gap: 48px; }
+  .legal-hero h1 { font-size: clamp(65px,20vw,92px); }
+  .legal-hero figure { min-height: 290px; box-shadow: 12px 12px 0 #173d42; }
+  .legal-index { display: none; }
+  .legal-meta { grid-template-columns: 1fr; }
+  .legal-meta strong { margin-bottom: 8px; }
+  .legal-layout { padding: 70px 5vw 90px; gap: 58px; }
+  .legal-sidebar nav { grid-template-columns: 1fr; }
+  .legal-sidebar nav a:nth-child(odd) { border-right: 0; }
+  .legal-copy > header h2 { font-size: 50px; }
+  .legal-copy > section { grid-template-columns: 42px minmax(0,1fr); gap: 12px; }
+  .legal-switch { padding-right: 5vw; padding-left: 5vw; }
+  .legal-switch a { grid-template-columns: 1fr auto; gap: 14px; }
+  .legal-switch i { display: none; }
+  .legal-switch b { width: 48px; height: 48px; }
+}
