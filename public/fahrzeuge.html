@@ -8,16 +8,17 @@
   <link rel="canonical" href="https://classiccardiegarage.ch/fahrzeuge.html">
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="/light.css">
+  <link rel="stylesheet" href="/monolith.css">
 </head>
-<body>
+<body class="monolith-page monolith-catalog-page">
   <header class="page-header">
     <a class="logo" href="/"><span class="logo-mark">DG</span><span><strong>Die Garage</strong><small>Classic & Modern Cars</small></span></a>
-    <nav><a href="/werkstatt.html">Werkstatt</a><a href="/fahrzeuge.html">Fahrzeuge</a><a href="/ankauf.html">Auto verkaufen</a><a href="/ueber-uns.html">Über uns</a><a class="nav-cta" href="/kontakt.html">Kontakt</a></nav>
+    <nav aria-label="Hauptnavigation"><a href="/leistungen.html">Leistungen</a><a href="/fahrzeuge.html">Fahrzeuge</a><a href="/ankauf.html">Auto verkaufen</a><a href="/ueber-uns.html">Über uns</a><a class="nav-cta" href="/termin.html">Termin buchen</a></nav>
   </header>
   <main>
-    <section class="page-hero">
-      <div><p class="eyebrow dark">Geprüft · Dokumentiert · Roggwil</p><h1>Fahrzeuge<br><em>zum Kauf.</em></h1></div>
-      <p>Oldtimer, Sportwagen und ehrliche Alltagsautos. Technisch geprüft, transparent beschrieben, mit klarer Verfügbarkeit.</p>
+    <section class="page-hero monolith-catalog-hero">
+      <div><p class="eyebrow dark">Unsere Fahrzeuge</p><h1>Ausgewählte<br>Fahrzeuge.<br><span>Echte Qualität.</span></h1><p>Oldtimer, Sportwagen und ehrliche Alltagsautos. Technisch geprüft, transparent beschrieben, klar verfügbar.</p></div>
+      <figure><img src="/assets/classic-car-die-garage-exterior.jpg" alt="Ausgewählte Fahrzeuge vor Classic Car die Garage in Roggwil"><figcaption>Classic & Modern · Roggwil</figcaption></figure>
     </section>
     <section class="page-content">
       <div class="catalog-toolbar">
@@ -27,8 +28,11 @@
       <div class="catalog-summary"><strong id="catalog-count">0</strong><span>Fahrzeuge im Bestand</span></div>
       <div class="full-car-grid" id="catalog-grid"></div>
     </section>
+    <section class="catalog-sell-cta"><div><p class="eyebrow">Fahrzeug verkaufen</p><h2>Sie möchten Ihr Fahrzeug verkaufen?</h2><p>Fair bewerten lassen. Schnell, transparent und ohne Verkaufsdruck.</p></div><a class="monolith-button" href="/ankauf.html">Fahrzeug anbieten <span>↗</span></a></section>
   </main>
+  <footer class="site-footer"></footer>
   <script src="/catalog.js"></script>
   <script src="/site-footer.js"></script>
+  <script src="/monolith.js"></script>
 </body>
 </html>
