@@ -30,6 +30,19 @@ if (pageHeader) {
   }
 }
 
+const stickyHeader = document.querySelector(".header, .page-header, .detail-header");
+if (stickyHeader) {
+  const updateHeader = () => stickyHeader.classList.toggle("is-scrolled", window.scrollY > 24);
+  updateHeader();
+  window.addEventListener("scroll", updateHeader, { passive: true });
+
+  const currentPath = location.pathname.replace(/\/$/, "") || "/";
+  stickyHeader.querySelectorAll("nav a[href]").forEach((link) => {
+    const linkPath = new URL(link.href, location.origin).pathname.replace(/\/$/, "") || "/";
+    if (linkPath === currentPath) link.setAttribute("aria-current", "page");
+  });
+}
+
 if (location.hostname === "classiccardiegarage.ch" && !document.querySelector("script[data-domain='classiccardiegarage.ch']")) {
   const analytics = document.createElement("script");
   analytics.defer = true;
